@@ -1,11 +1,14 @@
 <script setup>
 
+
+
+import Ip from "@/components/ip.vue";
 </script>
 
 <template>
 
-  <img src="@/assets/0d75fc42b6987.avif" alt="isLxhimg">
-  
+<ip></ip>
+
 </template>
 
 <style scoped>
