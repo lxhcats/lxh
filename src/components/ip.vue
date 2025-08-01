@@ -1,10 +1,12 @@
 <template>
   <div class="container">
     <div class="ip-box">
-     访问IP  {{ ip }}
+     访问IP:  {{ ip }}
+    </div>
+    <div class="country-box">
+      归属地:  {{country}}
     </div>
     <div class="poster-box">
-
       <img src="@/assets/110000.avif" alt="isLxhimg">
     </div>
   </div>
@@ -14,14 +16,17 @@
 import { ref, onMounted } from 'vue'
 import axios from 'axios'
 
+const country = ref('加载中...')
 const ip = ref('加载中...')
 
 onMounted(async () => {
   try {
     const response = await axios.get('https://api.lxhcat.net/ip')
     ip.value = response.data.ip || '未知 IP'
+    country.value = response.data.country || '未知 country'
   } catch (error) {
     ip.value = '获取失败'
+    country.value='获取失败'
     console.error(error)
   }
 })
@@ -50,7 +55,16 @@ onMounted(async () => {
   border-bottom: 2px solid #444;
   box-sizing: border-box;
 }
+.country-box{
 
+  width: 100%;
+  text-align: center;
+  padding: 16px;
+  font-size: 1.5rem;
+  background-color: #000;
+  border-bottom: 2px solid #444;
+  box-sizing: border-box;
+}
 /* 图片展示区域 */
 .poster-box {
   flex: 1;
