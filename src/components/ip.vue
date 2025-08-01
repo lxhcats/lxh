@@ -7,7 +7,7 @@
       归属地:  {{country}}
     </div>
     <div class="poster-box">
-      <img src="@/assets/110000.avif" alt="isLxhimg">
+      <img src="@/assets/110000.avif" alt="isLxhimg" class="poster-img" />
     </div>
   </div>
 </template>
